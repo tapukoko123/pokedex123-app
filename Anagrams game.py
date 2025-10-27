@@ -114,7 +114,7 @@ if st.session_state.count > 2:
     st.write("🎉 Well done — keep going!")
 
 # --- Show unlock message when reaching 4 ---
-if st.session_state.count == 4 and st.session_state.pokedex_unlocked:
+if st.session_state.count == 5 and st.session_state.pokedex_unlocked:
     st.balloons()
     st.success("🏆 Congratulations! You've unlocked the Pokédex!")
     st.info("📖 Check out the **Pokedex** page in the sidebar to explore all Pokémon!")
