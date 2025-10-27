@@ -6,6 +6,7 @@ from fuzzywuzzy import process
 
 # --- Load CSV ---
 data = pd.read_csv('pokemon.csv')
+data2 = pd.read_csv('pokemon2.csv')
 
 # --- Filter out 'Mega' Pokémon ---
 substring = r'\bMega\b'
@@ -18,6 +19,7 @@ pokemonhp = data['HP'].tolist()
 pokemonattack = data['Attack'].tolist()
 pokemondefence = data['Defence'].tolist()
 pokemonspeed = data['Speed'].tolist()
+pokemondesc = data2['Description'].tolist()
 
 st.title("Pokédex")
 
@@ -84,14 +86,19 @@ if current_index is not None:
     # Determine folder for image
     if 1 <= userpokemon <= 151:
         folder = 'red-blue'
+        st.subheader("Kanto Region")
     elif 152 <= userpokemon <= 251:
         folder = 'gold'
+        st.subheader("Johto Region")
     elif 252 <= userpokemon <= 386:
         folder = 'ruby-sapphire'
+        st.subheader("Hoenn Region")
     elif 387 <= userpokemon <= 492:
+        st.subheader("Sinnoh Region")
         folder = 'diamond-pearl'
     elif 493 <= userpokemon <= 649:
         folder = 'black-white'
+        st.subheader("Unova Region")
     else:
         folder = None
 
@@ -103,6 +110,9 @@ if current_index is not None:
             f"Defence: {pokemondefence[list_index]}  |  "
             f"Speed: {pokemonspeed[list_index]}"
         )
+        st.subheader("Basic Info")
+        st.write(f"{pokemondesc[list_index]}")
+        
 
         # Display image with transparency handled
         img_path = os.path.join(folder, f"{userpokemon}.png")
