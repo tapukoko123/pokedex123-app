@@ -80,7 +80,7 @@ if submit_button and guess:
         st.session_state.last_pokemon = [correct_index, correct_name]
         
         # Check if Pokédex just got unlocked
-        if st.session_state.count == 4:
+        if st.session_state.count == 5:
             st.session_state.pokedex_unlocked = True
         
         # Pick next Pokémon
