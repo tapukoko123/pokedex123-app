@@ -5,14 +5,14 @@ import os
 from fuzzywuzzy import process
 
 # --- Unlock Pokédex ---
-if "count" in st.session_state and st.session_state.count >= 4:
+if "count" in st.session_state and st.session_state.count >= 5:
     st.session_state.pokedex_unlocked = True
 
 if "pokedex_unlocked" not in st.session_state or not st.session_state.pokedex_unlocked:
     st.title("🔒 Pokédex Locked")
-    st.warning("You need 4 correct answers in the Anagram Game to unlock the Pokédex!")
+    st.warning("You need 5 correct answers in the Anagram Game to unlock the Pokédex!")
     if "count" in st.session_state:
-        st.write(f"Current score: {st.session_state.count}/4")
+        st.write(f"Current score: {st.session_state.count}/5")
     st.stop()
 
 # --- Load CSVs ---
