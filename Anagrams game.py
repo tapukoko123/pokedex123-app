@@ -37,7 +37,7 @@ st.set_page_config(page_title="Pokémon Anagrams")
     
 
 # TEMPORARY FIX: Force unlock since you already have 5 points
-if st.session_state.count >= 4:
+if st.session_state.count >= 5:
     st.session_state.pokedex_unlocked = True
 
 st.title("Pokémon Anagram Game")
